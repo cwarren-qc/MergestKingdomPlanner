@@ -1,0 +1,1655 @@
+{
+    "sheets": {
+        "Hero": {
+            "target_level": "4",
+            "max_merge": "17",
+            "items_needed": "1",
+            "rows": [
+                {
+                    "name": "King McArthur",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "Royal Inlay",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "Golden Crown",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "Silver Crown",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": "0"
+                }
+            ]
+        },
+        "Hero (Big & Bob)": {
+            "target_level": "11",
+            "max_merge": "17",
+            "items_needed": "1",
+            "rows": [
+                {
+                    "name": "Big & Bob",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "TNT Goblins",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Accomplices",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Second Suspect",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "First Suspect",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "TNT Barrel",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "33",
+                    "nb_override": "1"
+                },
+                {
+                    "name": "Dynamite Pack",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Dynamite",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Helmet",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Goggles",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Bomb",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Building (Wood)": {
+            "target_level": "7",
+            "max_merge": "65",
+            "items_needed": "5",
+            "rows": [
+                {
+                    "name": "Grand Cottage",
+                    "time": "15:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Soldier's Lodge",
+                    "time": "5:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Double Hut",
+                    "time": "1:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Single Hut",
+                    "time": "0:40",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Wooden Skeleton",
+                    "time": "0:15",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Planks",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Bole",
+                    "time": "",
+                    "on_hand": "6",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Building (Stone)": {
+            "target_level": "8",
+            "max_merge": "17",
+            "items_needed": "5",
+            "rows": [
+                {
+                    "name": "Main Depot",
+                    "time": "4:00:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Small Tavern",
+                    "time": "2:00:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Watchtower",
+                    "time": "15:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Battle Station",
+                    "time": "5:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Stone Granary",
+                    "time": "1:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Stone Template",
+                    "time": "0:40",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Stone Package",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Stone Block",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Building (Ice)": {
+            "target_level": "10",
+            "max_merge": "33",
+            "items_needed": "5",
+            "rows": [
+                {
+                    "name": "Ice Residence",
+                    "time": "12:00:00",
+                    "on_hand": "0",
+                    "liquid": "2",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ice Palace",
+                    "time": "8:00:00",
+                    "on_hand": "0",
+                    "liquid": "2",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ice Mansion",
+                    "time": "4:00:00",
+                    "on_hand": "0",
+                    "liquid": "2",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ice House",
+                    "time": "2:00:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ice Chamber",
+                    "time": "15:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ice Arch",
+                    "time": "5:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ice Frame",
+                    "time": "2:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ice Foundation",
+                    "time": "0:40",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ice Blocks",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ice Brick",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Building (Lava)": {
+            "target_level": "10",
+            "max_merge": "33",
+            "items_needed": "5",
+            "rows": [
+                {
+                    "name": "Lava Castle",
+                    "time": "12:00:00",
+                    "on_hand": "0",
+                    "liquid": "2",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lava Mansion",
+                    "time": "8:00:00",
+                    "on_hand": "0",
+                    "liquid": "2",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lava Cottage",
+                    "time": "4:00:00",
+                    "on_hand": "0",
+                    "liquid": "",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lava Manor",
+                    "time": "2:00:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lava House",
+                    "time": "15:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lava Hut",
+                    "time": "5:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lava Den",
+                    "time": "2:00",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "17",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lava Foundation",
+                    "time": "0:40",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "17",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lava Heap",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "17",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lava Stone",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Sacred Arboretum": {
+            "target_level": "9",
+            "max_merge": "9",
+            "items_needed": "1",
+            "rows": [
+                {
+                    "name": "Sacred Arboretum",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Arboreal Pond",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Magic Tree",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Mature Shrub",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Young Sapling",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Wooden Vine",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "First Buds",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Evergreen Inflorescence",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Common Flower",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Ruby": {
+            "target_level": "8",
+            "max_merge": "17",
+            "items_needed": "2",
+            "rows": [
+                {
+                    "name": "Ruby Chest",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ruby Casket",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ruby Box",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ruby Bag",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ruby Pillow",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ruby Handful",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Single Ruby",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Ruby Dust",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Keys": {
+            "target_level": "8",
+            "max_merge": "17",
+            "items_needed": "2",
+            "rows": [
+                {
+                    "name": "Flying Key",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Purple Key",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Pink Key",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Indigo Key",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Azure Key",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Golden Key",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Silver Key",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Bronze Key",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Coin": {
+            "target_level": "12",
+            "max_merge": "17",
+            "items_needed": "1",
+            "rows": [
+                {
+                    "name": "Crimson Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Violet Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Teal Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Green Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Red Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Purple Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Blue Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Cyan Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Gold Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Silver Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Bronze Coin",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Bronze Dust",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Genie": {
+            "target_level": "5",
+            "max_merge": "9",
+            "items_needed": "4",
+            "rows": [
+                {
+                    "name": "Genie",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lamp",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Dagger",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Turban",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Pendant",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Monthly Things": {
+            "target_level": "10",
+            "max_merge": "17",
+            "items_needed": "1",
+            "rows": [
+                {
+                    "name": "Spiral",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Binaucular",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Basket",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Trunk",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "BackPack",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Boots",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Hat",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Shawl",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "9",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Coffee",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "9",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Leaves",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                }
+            ]
+        },
+        "Atlantis: Hero": {
+            "target_level": "11",
+            "max_merge": "65",
+            "items_needed": "1",
+            "rows": [
+                {
+                    "name": "Mergelot",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Underwater Helmet",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Underwater Scooter",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Life Vest",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Lifebuoy",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Scuba",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "1",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Oxygen Bottle",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Snorkel",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Goggles",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Long Flippers",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "",
+                    "nb_override": ""
+                },
+                {
+                    "name": "Short Flippers",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "0",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "0",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "0",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "0",
+                    "nb_override": ""
+                },
+                {
+                    "name": "",
+                    "time": "",
+                    "on_hand": "0",
+                    "liquid": "0",
+                    "max_merge": "0",
+                    "nb_override": ""
+                }
+            ]
+        }
+    }
+}
