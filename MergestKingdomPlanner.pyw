@@ -614,14 +614,14 @@ class BuildingCalculator:
         
         # Save to file
         try:
-            with open('MergestKingdom-Data.json', 'w') as f:
+            with open('MergestKingdomPlanner-Data.json', 'w') as f:
                 json.dump(data, f, indent=4)
         except Exception as e:
             tk.messagebox.showerror("Error", f"Failed to save data: {str(e)}")
         
     def load_data(self):
-        filename = 'MergestKingdom-Data.json'
-        default_filename = 'MergestKingdom-Data.default.json'
+        filename = 'MergestKingdomPlanner-Data.json'
+        default_filename = 'MergestKingdomPlanner-Data.default.json'
         
         # Try to load user file first, fall back to default if not found
         if not os.path.exists(filename):
