@@ -1,11 +1,12 @@
-# Version: 1.0.0
+# Version: 1.0.1
 # https://github.com/cwarren-qc/MergestKingdomPlanner.git
 import tkinter as tk
 from tkinter import ttk
-import json
-import os
 from tkinter import simpledialog
 from tkinter import messagebox
+import json
+import os
+import re
 from enum import Enum
 from datetime import datetime, timedelta
 
@@ -102,32 +103,46 @@ def safe_get_int(value):
     except:
         return 0
 
+import re
+from datetime import timedelta
 
 def parse_time(time_str):
-    """Parse time string in format H:MM:SS or MM:SS"""
+    """Parse time string in format D.HH:MM:SS, HH:MM:SS, or MM:SS"""
     try:
         if not time_str:
             return timedelta()
-        parts = time_str.split(':')
-        if len(parts) == 1:
-            return timedelta(seconds=int(parts[0]))
-        elif len(parts) == 2:
-            return timedelta(minutes=int(parts[0]), seconds=int(parts[1]))
-        elif len(parts) == 3:
-            return timedelta(hours=int(parts[0]), minutes=int(parts[1]), seconds=int(parts[2]))
-        else:
-            return timedelta()        
+            
+        pattern = r'^((((?P<day>\d+)\.)?(?P<hour>\d{1,2}):)?(?P<minute>\d{1,2}):)?(?P<second>\d{1,2})$'
+        match = re.match(pattern, time_str)
+        
+        if not match:
+            return timedelta()
+            
+        # Extract named groups, defaulting to 0 if None
+        groups = match.groupdict()
+        return timedelta(
+            days=int(groups['day']) if groups['day'] else 0,
+            hours=int(groups['hour']) if groups['hour'] else 0,
+            minutes=int(groups['minute']) if groups['minute'] else 0,
+            seconds=int(groups['second']) if groups['second'] else 0
+        )
+            
     except:
         return timedelta()
 
 def format_time(td):
     """Format timedelta to human readable string"""
     total_seconds = int(td.total_seconds())
-    hours = total_seconds // 3600
-    minutes = (total_seconds % 3600) // 60
-    seconds = total_seconds % 60
+    days = total_seconds // (24 * 3600)
+    remaining = total_seconds % (24 * 3600)
+    hours = remaining // 3600
+    remaining = remaining % 3600
+    minutes = remaining // 60
+    seconds = remaining % 60
     
-    if hours > 0:
+    if days > 0:
+        return f"{days}.{hours:02d}:{minutes:02d}:{seconds:02d}"
+    elif hours > 0:
         return f"{hours}:{minutes:02d}:{seconds:02d}"
     elif minutes > 0:
         return f"{minutes}:{seconds:02d}"
