@@ -1,4 +1,4 @@
-# Version: 1.0.1
+# Version: 1.0.2
 # https://github.com/cwarren-qc/MergestKingdomPlanner.git
 import tkinter as tk
 from tkinter import ttk
@@ -13,16 +13,17 @@ from datetime import datetime, timedelta
 class Column(Enum):
     LEVEL = 0
     ITEMS_NEEDED = 1
-    NAME = 2
-    TIME_TO_BUILD = 3
-    ON_HAND = 4
-    MAX_MERGE = 5
-    NB_OVERRIDE = 6
-    MERGE_COMBINATION = 7
-    ITEMS_REQUIRED = 8
-    LIQUID_TO_USE = 9
-    LIQUID_SAVING = 10
-    ITEMS_TO_CREATE = 11
+    EFFICIENT = 2
+    NAME = 3
+    TIME_TO_BUILD = 4
+    ON_HAND = 5
+    MAX_MERGE = 6
+    NB_OVERRIDE = 7
+    MERGE_COMBINATION = 8
+    ITEMS_REQUIRED = 9 
+    LIQUID_TO_USE = 10
+    LIQUID_SAVING = 11
+    ITEMS_TO_CREATE = 12
     
 def calculate_small_items(items_needed, max_merge, override_merge, override_count, level):
     if items_needed <= 0:
@@ -192,6 +193,7 @@ class CalculatorGrid:
     
         self.rows = []
         self.items_needed_vars = []
+        self.efficient_vars = []
         self.name_vars = []
         self.time_vars = []
         self.on_hand_vars = []
@@ -203,7 +205,7 @@ class CalculatorGrid:
         self.calculate()
 
     def create_initial_rows(self):
-        headers = ["Level", "Items Needed", "Name", "Time to build", "On hand", 
+        headers = ["Level", "Items Needed", "Efficient", "Name", "Time to build", "On hand", 
                   "Max Merge", "Nb", "Needed <= Merge Combination", "Items required", "Liquid to use",
                   "Items / Time saved", "Items to create"]
             
@@ -216,6 +218,8 @@ class CalculatorGrid:
         on_hand_entries = []
         liquid_entries = []
         max_merge_entries = []
+        nb_override_entries = []
+        efficient_entries = []
 
         for i in range(15):
             row = []
@@ -224,13 +228,13 @@ class CalculatorGrid:
             level_label = ttk.Label(self.results_frame, text="", takefocus=0)
             level_label.grid(row=i+1, column=Column.LEVEL.value, padx=2)
             row.append(level_label)
-            
+    
             # Items Needed (editable only on the first line)
             if i == 0:
                 # First row: make it editable
                 items_needed_var = tk.StringVar(value="1")
                 self.items_needed_vars.append(items_needed_var)
-                items_needed_var.trace_add("write", self.trigger_calculation2)
+                items_needed_var.trace_add("write", self.trigger_calculation)
                 items_needed = ttk.Entry(self.results_frame, textvariable=items_needed_var, width=3, justify='center')
                 items_needed.grid(row=i+1, column=Column.ITEMS_NEEDED.value, padx=2)
                 row.append(items_needed)
@@ -239,7 +243,16 @@ class CalculatorGrid:
                 items_needed = ttk.Label(self.results_frame, text="", takefocus=0)
                 items_needed.grid(row=i+1, column=Column.ITEMS_NEEDED.value, padx=2)
                 row.append(items_needed)
-    
+            
+            # Efficient checkbox
+            efficient_var = tk.BooleanVar(value=False)
+            self.efficient_vars.append(efficient_var)
+            efficient_var.trace_add("write", self.trigger_calculation)
+            efficient_check = ttk.Checkbutton(self.results_frame, variable=efficient_var)
+            efficient_check.grid(row=i+1, column=Column.EFFICIENT.value, padx=2, sticky="w")
+            efficient_entries.append(efficient_check)
+            row.append(efficient_check)
+
             # Name (editable)
             name_var = tk.StringVar()
             self.name_vars.append(name_var)
@@ -282,6 +295,7 @@ class CalculatorGrid:
             nb_override_var.trace_add("write", self.trigger_calculation)
             nb_override = ttk.Entry(self.results_frame, textvariable=nb_override_var, width=5)
             nb_override.grid(row=i+1, column=Column.NB_OVERRIDE.value, padx=2)
+            nb_override_entries.append(nb_override)
             row.append(nb_override)
 
             # Merge Combination (non-editable)
@@ -315,62 +329,27 @@ class CalculatorGrid:
             
             self.rows.append(row)
         
-        # Set the tab order
-        for i, entry in enumerate(name_entries):
-            entry.lift()
-            if i < len(name_entries) - 1:
-                entry.configure(takefocus=True)
-                next_widget = name_entries[i + 1]
-                entry.tk_focusNext = lambda: next_widget
+        # Create ordered list of all entry controls for tab order
+        tab_order = []
+        tab_order.extend(efficient_entries)
+        tab_order.extend(name_entries)
+        tab_order.extend(time_entries)
+        tab_order.extend(on_hand_entries)
+        tab_order.extend(nb_override_entries)
+        tab_order.extend(liquid_entries)
         
-        for i, entry in enumerate(time_entries):
+        # Set the tab order for all controls
+        for i, entry in enumerate(tab_order):
             entry.lift()
-            if i < len(time_entries) - 1:
-                entry.configure(takefocus=True)
-                next_widget = time_entries[i + 1]
-                entry.tk_focusNext = lambda: next_widget
-            elif i == len(time_entries) - 1:
-                entry.configure(takefocus=True)
-                next_widget = on_hand_entries[0]
-                entry.tk_focusNext = lambda: next_widget
-        
-        for i, entry in enumerate(on_hand_entries):
-            entry.lift()
-            if i < len(on_hand_entries) - 1:
-                entry.configure(takefocus=True)
-                next_widget = on_hand_entries[i + 1]
-                entry.tk_focusNext = lambda: next_widget
-            elif i == len(on_hand_entries) - 1:
-                entry.configure(takefocus=True)
-                next_widget = liquid_entries[0]
-                entry.tk_focusNext = lambda: next_widget
-        
-        for i, entry in enumerate(liquid_entries):
-            entry.lift()
-            if i < len(liquid_entries) - 1:
-                entry.configure(takefocus=True)
-                next_widget = liquid_entries[i + 1]
-                entry.tk_focusNext = lambda: next_widget
-            elif i == len(liquid_entries) - 1:
-                entry.configure(takefocus=True)
-                next_widget = max_merge_entries[0]
-                entry.tk_focusNext = lambda: next_widget
-        
-        for i, entry in enumerate(max_merge_entries):
-            entry.lift()
-            if i < len(max_merge_entries) - 1:
-                entry.configure(takefocus=True)
-                next_widget = max_merge_entries[i + 1]
-                entry.tk_focusNext = lambda: next_widget
-            elif i == len(max_merge_entries) - 1:
-                entry.configure(takefocus=True)
-                next_widget = name_entries[0]
-                entry.tk_focusNext = lambda: next_widget
-            
-    def trigger_calculation(self, *args):
-        current = self.calculate()
+            entry.configure(takefocus=True)
+            if i < len(tab_order) - 1:
+                next_widget = tab_order[i + 1]
+            else:
+                next_widget = tab_order[0]  # Loop back to first control
+            entry.tk_focusNext = lambda next=next_widget: next
 
-    def trigger_calculation2(self, *args):
+
+    def trigger_calculation(self, *args):
         current = self.calculate()
     
     def calculate(self, update_ui=True, min_liquid_level=0, use_items_on_hand=True):
@@ -400,26 +379,26 @@ class CalculatorGrid:
                         row[Column.ITEMS_NEEDED.value].config(text=str(current_items_needed))
                     
                 last_current_items_needed = current_items_needed
+
+                try:
+                    line_max_merge = safe_get_int(self.max_merge_vars[i].get())
+                    max_merge_to_use = line_max_merge if line_max_merge > 0 else global_max_merge
+                    nb_override = safe_get_int(self.nb_override_vars[i].get())
+                except ValueError:
+                    max_merge_to_use = global_max_merge
+                    nb_override = 0
+
+                if update_ui:
+                    if self.efficient_vars[i].get():
+                        current_items_needed = ((current_items_needed + max_merge_to_use - 1) // max_merge_to_use) * max_merge_to_use
+                        row[Column.EFFICIENT.value].config(text=str(current_items_needed))
+                    else:
+                        row[Column.EFFICIENT.value].config(text="")
                 
                 items_on_hand = safe_get_int(self.on_hand_vars[i].get()) if use_items_on_hand else 0
                 items_needed_after_onhand = max(0, current_items_needed - items_on_hand)
-                
-                # Calculate build time
-                if current_items_needed > 0:
-                    time_str = self.time_vars[i].get()
-                    if time_str:
-                        build_time = parse_time(time_str)
-                        total_build_time += build_time * current_items_needed
 
-                if items_needed_after_onhand > 0:
-                    try:
-                        line_max_merge = safe_get_int(self.max_merge_vars[i].get())
-                        max_merge_to_use = line_max_merge if line_max_merge > 0 else global_max_merge
-                        nb_override = safe_get_int(self.nb_override_vars[i].get())
-                    except ValueError:
-                        max_merge_to_use = global_max_merge
-                        nb_override = 0
-                    
+                if items_needed_after_onhand > 0:                                              
                     small_items, nb_merges, combination = calculate_small_items(
                         items_needed_after_onhand, 
                         global_max_merge if nb_override > 0 else max_merge_to_use, 
@@ -460,6 +439,13 @@ class CalculatorGrid:
                                 
                 current_level -= 1
             
+                # Calculate build time
+                if current_items_needed > 0:
+                    time_str = self.time_vars[i].get()
+                    if time_str:
+                        build_time = parse_time(time_str)
+                        total_build_time += build_time * current_items_needed
+
             if update_ui:
                 without_items, total_time = self.calculate(False, 0, False)
                 completion = (without_items - last_current_items_needed) * 100 / without_items if without_items > 0 else 0
@@ -481,6 +467,7 @@ class CalculatorGrid:
         
         for i in range(len(self.rows)):
             row_data = {
+                'efficient': self.efficient_vars[i].get(),
                 'name': self.name_vars[i].get(),
                 'time': self.time_vars[i].get(),
                 'on_hand': self.on_hand_vars[i].get(),
@@ -500,13 +487,14 @@ class CalculatorGrid:
         rows_data = data.get('rows', [])
         for i, row_data in enumerate(rows_data):
             if i < len(self.rows):
+                self.efficient_vars[i].set(row_data.get('efficient', False))
                 self.name_vars[i].set(row_data.get('name', ''))
                 self.time_vars[i].set(row_data.get('time', ''))
                 self.on_hand_vars[i].set(row_data.get('on_hand', '0'))
                 self.liquid_vars[i].set(row_data.get('liquid', '0'))
                 self.max_merge_vars[i].set(row_data.get('max_merge', ''))
                 self.nb_override_vars[i].set(row_data.get('nb_override', ''))
-                
+
 class BuildingCalculator:
     def __init__(self, root):
         self.root = root
