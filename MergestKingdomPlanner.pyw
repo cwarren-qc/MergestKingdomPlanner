@@ -1,4 +1,4 @@
-# Version: 1.0.2
+# Version: 1.0.3
 # https://github.com/cwarren-qc/MergestKingdomPlanner.git
 import tkinter as tk
 from tkinter import ttk
@@ -9,22 +9,56 @@ import os
 import re
 from enum import Enum
 from datetime import datetime, timedelta
+from dataclasses import dataclass
 
-class Column(Enum):
-    LEVEL = 0
-    ITEMS_NEEDED = 1
-    EFFICIENT = 2
-    NAME = 3
-    TIME_TO_BUILD = 4
-    ON_HAND = 5
-    MAX_MERGE = 6
-    NB_OVERRIDE = 7
-    MERGE_COMBINATION = 8
-    ITEMS_REQUIRED = 9 
-    LIQUID_TO_USE = 10
-    LIQUID_SAVING = 11
-    ITEMS_TO_CREATE = 12
+@dataclass
+class ColumnDefinition:
+    id: int
+    name: str
+    description: str
+
+class ColumnInfo(Enum):
+    LEVEL = ColumnDefinition(0, "Level", "The level number being calculated")
+    ITEMS_NEEDED = ColumnDefinition(1, "Items Needed", "Number of items needed")
+    EFFICIENT = ColumnDefinition(2, "Efficient", "Always round up to next merge size multiple to optimize merging")
+    NAME = ColumnDefinition(3, "Name", "Name of the item")
+    TIME_TO_BUILD = ColumnDefinition(4, "Time to build", "Time required to build one item\nFormat: D.HH:MM:SS\nExample: 3:00 => 3 minutes")
+    ON_HAND = ColumnDefinition(5, "On hand", "Number of items already available")
+    MAX_MERGE = ColumnDefinition(6, "Max Merge", "Maximum number of items that can be merged at once\n(overrides global setting)")
+    NB_OVERRIDE = ColumnDefinition(7, "Nb", "Number of times the override can be used\n(0 => infinite and override completly the global setting)")
+    MERGE_COMBINATION = ColumnDefinition(8, "Needed <= Merge Combination", "Shows how items should be merged")
+    ITEMS_REQUIRED = ColumnDefinition(9, "Items required", "Total number of items needed based on merge combination")
+    LIQUID_TO_USE = ColumnDefinition(10, "Liquid to use", "Number of liquid to use\n(cannot be higher then then number of merge operations)")
+    LIQUID_SAVING = ColumnDefinition(11, "Items / Time saved", "Resources saved by using liquid")
+    ITEMS_TO_CREATE = ColumnDefinition(12, "Items to create", "Final number of items to create after applying liquid")
     
+# Tooltip class implementation
+class ToolTip:
+    def __init__(self, widget, text):
+        self.widget = widget
+        self.text = text
+        self.tooltip = None
+        self.widget.bind("<Enter>", self.enter)
+        self.widget.bind("<Leave>", self.leave)
+
+    def enter(self, event=None):
+        x, y, _, _ = self.widget.bbox("insert")
+        x += self.widget.winfo_rootx() + 25
+        y += self.widget.winfo_rooty() + 20
+        
+        self.tooltip = tk.Toplevel(self.widget)
+        self.tooltip.wm_overrideredirect(True)
+        self.tooltip.wm_geometry(f"+{x}+{y}")
+        
+        label = ttk.Label(self.tooltip, text=self.text, justify='left',
+                         background="#ffffe0", relief='solid', borderwidth=4)
+        label.pack()
+
+    def leave(self, event=None):
+        if self.tooltip:
+            self.tooltip.destroy()
+            self.tooltip = None
+
 def calculate_small_items(items_needed, max_merge, override_merge, override_count, level):
     if items_needed <= 0:
         return 0, 0, ""
@@ -103,9 +137,6 @@ def safe_get_int(value):
         return int(value)
     except:
         return 0
-
-import re
-from datetime import timedelta
 
 def parse_time(time_str):
     """Parse time string in format D.HH:MM:SS, HH:MM:SS, or MM:SS"""
@@ -205,13 +236,14 @@ class CalculatorGrid:
         self.calculate()
 
     def create_initial_rows(self):
-        headers = ["Level", "Items Needed", "Efficient", "Name", "Time to build", "On hand", 
-                  "Max Merge", "Nb", "Needed <= Merge Combination", "Items required", "Liquid to use",
-                  "Items / Time saved", "Items to create"]
+        # Create header labels with tooltips
+        for column_info in ColumnInfo:
+            header_label = ttk.Label(self.results_frame, text=column_info.value.name, font=('Arial', 8, 'bold'))
+            header_label.grid(row=0, column=column_info.value.id, padx=2, sticky="w")
             
-        for i, header in enumerate(headers):
-            ttk.Label(self.results_frame, text=header, font=('Arial', 8, 'bold')).grid(row=0, column=i, padx=2)
-        
+            # Create tooltip
+            tooltip = ToolTip(header_label, column_info.value.description)
+                    
         # Create lists to store editable widgets by column
         name_entries = []
         time_entries = []
@@ -226,7 +258,7 @@ class CalculatorGrid:
             
             # Level (non-editable)
             level_label = ttk.Label(self.results_frame, text="", takefocus=0)
-            level_label.grid(row=i+1, column=Column.LEVEL.value, padx=2)
+            level_label.grid(row=i+1, column=ColumnInfo.LEVEL.value.id, padx=2)
             row.append(level_label)
     
             # Items Needed (editable only on the first line)
@@ -236,12 +268,12 @@ class CalculatorGrid:
                 self.items_needed_vars.append(items_needed_var)
                 items_needed_var.trace_add("write", self.trigger_calculation)
                 items_needed = ttk.Entry(self.results_frame, textvariable=items_needed_var, width=3, justify='center')
-                items_needed.grid(row=i+1, column=Column.ITEMS_NEEDED.value, padx=2)
+                items_needed.grid(row=i+1, column=ColumnInfo.ITEMS_NEEDED.value.id, padx=2)
                 row.append(items_needed)
             else:
                 # Other rows: keep as labels
                 items_needed = ttk.Label(self.results_frame, text="", takefocus=0)
-                items_needed.grid(row=i+1, column=Column.ITEMS_NEEDED.value, padx=2)
+                items_needed.grid(row=i+1, column=ColumnInfo.ITEMS_NEEDED.value.id, padx=2)
                 row.append(items_needed)
             
             # Efficient checkbox
@@ -249,7 +281,7 @@ class CalculatorGrid:
             self.efficient_vars.append(efficient_var)
             efficient_var.trace_add("write", self.trigger_calculation)
             efficient_check = ttk.Checkbutton(self.results_frame, variable=efficient_var)
-            efficient_check.grid(row=i+1, column=Column.EFFICIENT.value, padx=2, sticky="w")
+            efficient_check.grid(row=i+1, column=ColumnInfo.EFFICIENT.value.id, padx=2, sticky="w")
             efficient_entries.append(efficient_check)
             row.append(efficient_check)
 
@@ -258,7 +290,7 @@ class CalculatorGrid:
             self.name_vars.append(name_var)
             name_var.trace_add("write", self.trigger_calculation)
             name_entry = ttk.Entry(self.results_frame, textvariable=name_var, width=15)
-            name_entry.grid(row=i+1, column=Column.NAME.value, padx=2)
+            name_entry.grid(row=i+1, column=ColumnInfo.NAME.value.id, padx=2)
             name_entries.append(name_entry)
             row.append(name_entry)
             
@@ -267,7 +299,7 @@ class CalculatorGrid:
             self.time_vars.append(time_var)
             time_var.trace_add("write", self.trigger_calculation)
             time_entry = ttk.Entry(self.results_frame, textvariable=time_var, width=10, justify='right')
-            time_entry.grid(row=i+1, column=Column.TIME_TO_BUILD.value, padx=2)
+            time_entry.grid(row=i+1, column=ColumnInfo.TIME_TO_BUILD.value.id, padx=2)
             time_entries.append(time_entry)
             row.append(time_entry)
             
@@ -276,7 +308,7 @@ class CalculatorGrid:
             self.on_hand_vars.append(on_hand_var)
             on_hand_var.trace_add("write", self.trigger_calculation)
             items_on_hand = ttk.Entry(self.results_frame, textvariable=on_hand_var, width=10)
-            items_on_hand.grid(row=i+1, column=Column.ON_HAND.value, padx=2)
+            items_on_hand.grid(row=i+1, column=ColumnInfo.ON_HAND.value.id, padx=2)
             on_hand_entries.append(items_on_hand)
             row.append(items_on_hand)
             
@@ -285,7 +317,7 @@ class CalculatorGrid:
             self.max_merge_vars.append(max_merge_var)
             max_merge_var.trace_add("write", self.trigger_calculation)
             max_merge = ttk.Combobox(self.results_frame, textvariable=max_merge_var, width=7, values=self.max_merge_values, state="readonly")
-            max_merge.grid(row=i+1, column=Column.MAX_MERGE.value, padx=2)
+            max_merge.grid(row=i+1, column=ColumnInfo.MAX_MERGE.value.id, padx=2)
             max_merge_entries.append(max_merge)
             row.append(max_merge)
 
@@ -294,18 +326,18 @@ class CalculatorGrid:
             self.nb_override_vars.append(nb_override_var)
             nb_override_var.trace_add("write", self.trigger_calculation)
             nb_override = ttk.Entry(self.results_frame, textvariable=nb_override_var, width=5)
-            nb_override.grid(row=i+1, column=Column.NB_OVERRIDE.value, padx=2)
+            nb_override.grid(row=i+1, column=ColumnInfo.NB_OVERRIDE.value.id, padx=2, sticky="w")
             nb_override_entries.append(nb_override)
             row.append(nb_override)
 
             # Merge Combination (non-editable)
             merge_comb = ttk.Label(self.results_frame, text="", font=("Courier", "10"), takefocus=0)
-            merge_comb.grid(row=i+1, column=Column.MERGE_COMBINATION.value, padx=2, sticky="w")
+            merge_comb.grid(row=i+1, column=ColumnInfo.MERGE_COMBINATION.value.id, padx=2, sticky="w")
             row.append(merge_comb)
             
             # Items required (non-editable)
             items_required = ttk.Label(self.results_frame, text="", takefocus=0)
-            items_required.grid(row=i+1, column=Column.ITEMS_REQUIRED.value, padx=2)
+            items_required.grid(row=i+1, column=ColumnInfo.ITEMS_REQUIRED.value.id, padx=2)
             row.append(items_required)
             
             # Liquid to use (editable)
@@ -313,18 +345,18 @@ class CalculatorGrid:
             self.liquid_vars.append(liquid_var)
             liquid_var.trace_add("write", self.trigger_calculation)
             liquid = ttk.Entry(self.results_frame, textvariable=liquid_var, width=10, style="Normal.TEntry")
-            liquid.grid(row=i+1, column=Column.LIQUID_TO_USE.value, padx=2)
+            liquid.grid(row=i+1, column=ColumnInfo.LIQUID_TO_USE.value.id, padx=2)
             liquid_entries.append(liquid)
             row.append(liquid)
 
             # Liquid saving (non-editable)
             liquid_saving = ttk.Label(self.results_frame, text="", takefocus=0)
-            liquid_saving.grid(row=i+1, column=Column.LIQUID_SAVING.value, padx=2)
+            liquid_saving.grid(row=i+1, column=ColumnInfo.LIQUID_SAVING.value.id, padx=2)
             row.append(liquid_saving)
             
             # Items to create (non-editable)
             items_create = ttk.Label(self.results_frame, text="", takefocus=0)
-            items_create.grid(row=i+1, column=Column.ITEMS_TO_CREATE.value, padx=2, sticky="w")
+            items_create.grid(row=i+1, column=ColumnInfo.ITEMS_TO_CREATE.value.id, padx=2, sticky="w")
             row.append(items_create)
             
             self.rows.append(row)
@@ -374,9 +406,9 @@ class CalculatorGrid:
                     break
                 
                 if update_ui:
-                    row[Column.LEVEL.value].config(text=str(current_level))
+                    row[ColumnInfo.LEVEL.value.id].config(text=str(current_level))
                     if i > 0:
-                        row[Column.ITEMS_NEEDED.value].config(text=str(current_items_needed))
+                        row[ColumnInfo.ITEMS_NEEDED.value.id].config(text=str(current_items_needed))
                     
                 last_current_items_needed = current_items_needed
 
@@ -391,9 +423,9 @@ class CalculatorGrid:
                 if update_ui:
                     if self.efficient_vars[i].get():
                         current_items_needed = ((current_items_needed + max_merge_to_use - 1) // max_merge_to_use) * max_merge_to_use
-                        row[Column.EFFICIENT.value].config(text=str(current_items_needed))
+                        row[ColumnInfo.EFFICIENT.value.id].config(text=str(current_items_needed))
                     else:
-                        row[Column.EFFICIENT.value].config(text="")
+                        row[ColumnInfo.EFFICIENT.value.id].config(text="")
                 
                 items_on_hand = safe_get_int(self.on_hand_vars[i].get()) if use_items_on_hand else 0
                 items_needed_after_onhand = max(0, current_items_needed - items_on_hand)
@@ -411,19 +443,19 @@ class CalculatorGrid:
                     if update_ui:
                         # Show merge combination with new format
                         merge_text = f"{combination:<30}" if current_level > 1 else f"{items_needed_after_onhand:>5}"
-                        row[Column.MERGE_COMBINATION.value].config(text=merge_text)
-                        row[Column.ITEMS_REQUIRED.value].config(text=str(small_items))
+                        row[ColumnInfo.MERGE_COMBINATION.value.id].config(text=merge_text)
+                        row[ColumnInfo.ITEMS_REQUIRED.value.id].config(text=str(small_items))
                         
                         # Check if liquid is higher than number of merges
                         if liquid_to_use > nb_merges:
-                            row[Column.LIQUID_TO_USE.value].config(style="Error.TEntry")
+                            row[ColumnInfo.LIQUID_TO_USE.value.id].config(style="Error.TEntry")
                         else:
-                            row[Column.LIQUID_TO_USE.value].config(style="Normal.TEntry")
+                            row[ColumnInfo.LIQUID_TO_USE.value.id].config(style="Normal.TEntry")
                            
                         # Get next item name
                         next_item_name = self.name_vars[i+1].get() if i+1 < len(self.rows) else ""
                         items_after_liquid = max(0, small_items - liquid_to_use_effective)
-                        row[Column.ITEMS_TO_CREATE.value].config(
+                        row[ColumnInfo.ITEMS_TO_CREATE.value.id].config(
                             text=f"{items_after_liquid} {next_item_name}")
                     
                         # Calculate liquid savings
@@ -431,7 +463,7 @@ class CalculatorGrid:
                             without_liquid, time_without_liquid = self.calculate(False, current_level + 1, False)
                             with_liquid, time_with_liquid = self.calculate(False, current_level, False)
                             savings = without_liquid - with_liquid
-                            row[Column.LIQUID_SAVING.value].config(text=f"{savings} / {format_time(time_without_liquid - time_with_liquid)}")
+                            row[ColumnInfo.LIQUID_SAVING.value.id].config(text=f"{savings} / {format_time(time_without_liquid - time_with_liquid)}")
                             
                     current_items_needed = max(0, small_items - liquid_to_use_effective)
                 else:
@@ -733,7 +765,7 @@ def main():
 
     root = tk.Tk()
     app = BuildingCalculator(root)
-    root.geometry("1400x600")  # Set initial window size
+    root.geometry("1500x600")  # Set initial window size
     root.mainloop()
 
 if __name__ == "__main__":
