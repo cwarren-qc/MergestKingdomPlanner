@@ -509,7 +509,7 @@ class CalculatorGrid:
                 if items_needed_after_onhand > 0:
                     small_items, nb_merges, combination = Merge.calculate_small_items(
                         items_needed_after_onhand,
-                        global_min_merge if self.efficient_vars[i].get() else 0,
+                        global_min_merge if update_ui and self.efficient_vars[i].get() else 0,
                         global_max_merge if nb_override > 0 else max_merge_to_use,
                         max_merge_to_use,
                         nb_override if nb_override > 0 else 99999,
