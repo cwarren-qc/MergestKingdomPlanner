@@ -1,4 +1,4 @@
-# Version: 1.0.4
+# Version: 1.0.5
 # https://github.com/cwarren-qc/MergestKingdomPlanner.git
 import tkinter as tk
 from tkinter import ttk
@@ -118,9 +118,9 @@ class Merge:
             small_merges_count = len(used_merges) - max_merge_idx
             print(f"Small merges count: {small_merges_count}")
 
-            # Try to optimize increasing groups starting from smallest merge
+            # Try to optimize increasing groups starting from largest group
             for combo_size in range(small_merges_count, 2 - 1, -1):
-                print(f"+++Checking {combo_size} merges")
+                print(f"Checking {combo_size} merges")
                 start_idx = len(used_merges) - combo_size
                 print(f"Start index: {start_idx}")
                 subset = used_merges[start_idx:len(used_merges)]
@@ -493,6 +493,13 @@ class CalculatorGrid:
                     if i > 0:
                         row[ColumnInfo.ITEMS_NEEDED.value.id].config(text=str(current_items_needed))
 
+                # Calculate build time
+                if current_items_needed > 0:
+                    time_str = self.time_vars[i].get()
+                    if time_str:
+                        build_time = parse_time(time_str)
+                        total_build_time += build_time * current_items_needed
+
                 last_current_items_needed = current_items_needed
 
                 try:
@@ -548,13 +555,6 @@ class CalculatorGrid:
                     current_items_needed = 0
 
                 current_level -= 1
-
-                # Calculate build time
-                if current_items_needed > 0:
-                    time_str = self.time_vars[i].get()
-                    if time_str:
-                        build_time = parse_time(time_str)
-                        total_build_time += build_time * current_items_needed
 
             if update_ui:
                 without_items, total_time = self.calculate(False, 0, False)
