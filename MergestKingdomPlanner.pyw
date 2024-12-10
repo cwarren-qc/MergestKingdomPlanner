@@ -82,6 +82,24 @@ class Merge:
 
         min_merge = min(min_merge, max_merge)
 
+        remaining = items_needed
+
+        # Handle forced smaller merges first if override_merge is smaller than max_merge
+        forced_merges = []
+        if override_merge < max_merge and override_count > 0:
+            # Find the merge that matches override_merge
+            override_merge_obj = next((m for m in Merge.VALID_MERGES if m.size == override_merge), None)
+            if override_merge_obj:
+                # Add the forced smaller merges
+                for _ in range(override_count):
+                    if remaining >= override_merge_obj.output:
+                        forced_merges.append(override_merge_obj)
+                        remaining -= override_merge_obj.output
+                    else:
+                        break
+
+        print(f"Forced merges: {forced_merges}")
+
         # Get all possible merges including override, but respecting min_merge
         allowed_merges = [m for m in Merge.VALID_MERGES if (min_merge <= m.size <= max_merge)]
         allowed_merges.sort(key=lambda x: x.size, reverse=True)
@@ -89,7 +107,6 @@ class Merge:
         allowed_merges_with_override.sort(key=lambda x: x.size, reverse=True)
 
         # First pass: calculate optimal merge combination without override constraint
-        remaining = items_needed
         used_merges = []  # List of Merge objects
 
         while remaining > 0:
@@ -173,6 +190,9 @@ class Merge:
 
                 used_merges = final_merges
 
+        # Combine forced merges with optimized merges
+        used_merges = forced_merges + used_merges
+
         # Calculate final results
         merge_counts = {}
         total_small_items = 0
@@ -208,7 +228,8 @@ Merge.VALID_MERGES = [
         Merge(9, 4),
         Merge(17, 8),
         Merge(33, 16),
-        Merge(65, 32)
+        Merge(65, 32),
+        Merge(129, 64)
     ]
 
 def safe_get_int(value):
@@ -263,7 +284,7 @@ def format_time(td):
 class CalculatorGrid:
     def __init__(self, parent_frame):
         self.frame = ttk.Frame(parent_frame, padding="5")
-        self.max_merge_values = ["", "3", "5", "9", "17", "33", "65"]
+        self.max_merge_values = [""] + [str(merge.size) for merge in Merge.VALID_MERGES]
 
         # Input Frame
         self.input_frame = ttk.Frame(self.frame, padding="5")
@@ -499,6 +520,9 @@ class CalculatorGrid:
                     if time_str:
                         build_time = parse_time(time_str)
                         total_build_time += build_time * current_items_needed
+                        if update_ui:
+                            print(f"Build time: {format_time(build_time)} * {current_items_needed} = {format_time(build_time * current_items_needed)}")
+                            print(f"Total build time: {format_time(total_build_time)}")
 
                 last_current_items_needed = current_items_needed
 
